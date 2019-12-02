@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+//import { Text } from 'react-native';
 import { Button, Card, CardSection, Input } from '../common';
 
 class ContactCreate extends React.Component {
