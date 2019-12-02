@@ -8,7 +8,7 @@ class Home extends Component {
         return(
             <View>
                 <Text>
-                    Testing
+                    Testing2
                 </Text>
             </View>
         );
