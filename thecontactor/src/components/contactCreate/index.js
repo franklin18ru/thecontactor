@@ -3,8 +3,9 @@ import { Text } from 'react-native';
 import Card from '../common/Card';
 import CardSection from '../common/Card';
 
-class ContactCreate extends React.Component {
+class ContactCreate extends Component {
     render() {
+        return(
         <Card>
             <form>
             <CardSection>
@@ -12,6 +13,7 @@ class ContactCreate extends React.Component {
             </CardSection>
             </form>
         </Card>
+        )
     }
 }
 
