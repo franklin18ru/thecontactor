@@ -20,9 +20,7 @@ import { GetContacts } from '../../actions/contactActions';
     }
   };
   render() {
-    return (
-      <View></View>
-    )
+    return null
   }
   
   }
