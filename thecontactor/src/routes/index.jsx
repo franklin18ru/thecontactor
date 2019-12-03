@@ -5,8 +5,8 @@ import Home from '../views/MainView/Home';
 
 
 const StackNavigator = createStackNavigator({
+    // Views //
     Home,
 });
-
 
 export default createAppContainer(StackNavigator);

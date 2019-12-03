@@ -1,19 +1,24 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-
+import PropTypes from 'prop-types';
 //Takki sem tekur við children props fyrir hvað á að standa í takkanum
 // T.d Create/Edit
-const Button = (children) => {
+const Button = ({ onPress, children }) => {
     const { buttonStyle, textStyle } = styles;
 
     return (
-        <TouchableOpacity style={buttonStyle}>
+        <TouchableOpacity onPress={onPress} style={buttonStyle}>
             <Text style={textStyle}>
                 {children}
             </Text>
         </TouchableOpacity>
     );
 };
+
+Button.propTypes = {
+    onPress: PropTypes.func.isRequired,
+    children: PropTypes.element.isRequired
+}
 
 const styles = {
     textStyle: {
