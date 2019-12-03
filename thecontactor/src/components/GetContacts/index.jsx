@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import * as Contacts from 'expo-contacts';
 import * as Permissions from 'expo-permissions';
 import { connect } from 'react-redux';
