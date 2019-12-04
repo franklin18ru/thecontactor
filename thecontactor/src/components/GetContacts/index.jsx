@@ -1,9 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
 import * as Contacts from 'expo-contacts';
 import * as Permissions from 'expo-permissions';
 import { connect } from 'react-redux';
-import { GetContacts } from '../../actions/contactActions';
+import { GetContacts } from '../actions/contactActions';
 
  class AllContacts extends React.Component {
   UNSAFE_componentWillMount = async () => {

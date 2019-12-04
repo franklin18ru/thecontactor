@@ -1,13 +1,13 @@
-import { Component } from 'react';
+// import { Component } from 'react';
 
 
-class CreateJsonContacts extends Component {
-render(){
-    return(
+// class CreateJsonContacts extends Component {
+// render(){
+//     return(
         
-    )
-}
-}
+//     )
+// }
+// }
 
 
-export default CreateJsonContacts;
+// export default CreateJsonContacts;
