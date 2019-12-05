@@ -8,8 +8,8 @@ export const ContactUpdate = ({ prop, value }) => {
         }
 };
 
-export const ContactCreate = ({ name, number }) =>{
-    const contact = { name, number }
+export const ContactCreate = ({ name, phoneNumber }) =>{
+    const contact = { name, phoneNumber }
     return (dispatch) => {
         dispatch({ type: constants.CONTACT_CREATE});
         addContact(contact);
