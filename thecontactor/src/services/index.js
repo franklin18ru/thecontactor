@@ -11,7 +11,29 @@ export const addContact = async (data) => {
     // name 
     // photo 
     // phone number
-    await FileSystem.writeAsStringAsync(fileName, JSON.stringify(data), { encoding: FileSystem.EncodingType.UTF8 });
+    
+    var phoneNumbers;
+    console.log();
+    if(data.phoneNumbers != undefined){
+        var arr = [];
+        data.phoneNumbers.map(phone =>{
+            arr.push(phone.number)
+        });
+        phoneNumbers = arr;
+    }
+    else{
+        phoneNumbers = data.phoneNumbers;
+    }
+
+    console.log(phoneNumbers);
+
+    const contact = {
+        'name': data.name,
+        'image': '',
+        'phoneNumbers': phoneNumbers
+
+    };
+    await FileSystem.writeAsStringAsync(fileName, JSON.stringify(contact), { encoding: FileSystem.EncodingType.UTF8 });
 }
 
 // GET DATA //
@@ -32,9 +54,13 @@ export const getAllContacts = async () => {
     await setupDirectory();
     const result = await FileSystem.readDirectoryAsync(contactDirectory);
     return Promise.all(result.map(async (fileName) => {
+        const data = JSON.parse(await loadData(fileName));
+
         return {
-            'name': fileName,
-            'Contact': JSON.parse(await loadData(fileName))
+            'name': data.name,
+            'image': data.image,
+            'phoneNumbers': data.phoneNumbers,
+            'file': fileName
         }
     }));
 };
