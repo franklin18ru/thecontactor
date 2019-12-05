@@ -13,7 +13,6 @@ export const addContact = async (data) => {
     // phone number
     
     var phoneNumbers;
-    console.log();
     if(data.phoneNumbers != undefined){
         var arr = [];
         data.phoneNumbers.map(phone =>{
@@ -24,8 +23,6 @@ export const addContact = async (data) => {
     else{
         phoneNumbers = data.phoneNumbers;
     }
-
-    console.log(phoneNumbers);
 
     const contact = {
         'name': data.name,

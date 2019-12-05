@@ -42,7 +42,7 @@ const mapStateToProps = function(state) {
 }
 
 ShowContacts.propTypes = {
-    contacts: PropTypes.object
+    contacts: PropTypes.array
 }
 
 export default connect(mapStateToProps, null)(ShowContacts);
