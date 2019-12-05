@@ -12,7 +12,7 @@ const StackNavigator = createStackNavigator({
     Home,
     Contact,
     CreateContact,
-    EditContact
+    EditContact,
 });
 
 export default createAppContainer(StackNavigator);

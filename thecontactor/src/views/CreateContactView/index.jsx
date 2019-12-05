@@ -1,5 +1,9 @@
 import React from 'react';
-import { Button, Card, CardSection, Input } from '../../components/common'
+// import { Button, Card, CardSection, Input } from '../../components/common';
+import { Button } from '../../components/common/Button';
+import { Card } from '../../components/common/Card';
+import { CardSection } from '../../components/common/CardSection';
+import { Input } from '../../components/common/Input';
 import { ContactUpdate, ContactCreate } from '../../components/actions/contactActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';

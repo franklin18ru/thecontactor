@@ -6,7 +6,16 @@ import { Icon, Button } from 'react-native-elements'
 // import * as contacts from '../../components/GetContacts/index'
 
 class ContactView extends Component {
-
+    static navigationOptions = {
+        headerStyle: {
+          backgroundColor: '#23303b',
+        },
+        headerRight: () => (
+          <Icon name='ios-add' type='ionicon' color='white' size={40}
+              onPress={ () => this.props.navigation.navigate('CreateContact')}
+            />
+        ),
+      };
     render(){
         const { getParam } = this.props.navigation
         return(
@@ -21,7 +30,7 @@ class ContactView extends Component {
                     <View style={styles.iconView}>
                         <Icon
                         style={ styles.icon }
-                        name='ios-call' color={'#181A24'} size={30} type='ionicon' reverse
+                        name='ios-call' color={'#23303b'} size={30} type='ionicon' reverse
                         onPress={()=> alert('Coming Soon!')}
                         />
                     </View>
@@ -32,7 +41,7 @@ class ContactView extends Component {
                 style={styles.button}
                 title='Edit contact'
                 type='solid'
-                onPress={()=> this.props.navigation.navigate('EditContact', {name: getParam('name'), phoneNumber: getParam('phoneNumber')})}/>
+                onPress={()=> this.props.navigation.navigate('EditContact', { name: getParam('name'), phoneNumber: getParam('phoneNumber') })}/>
                 </View>
 
 

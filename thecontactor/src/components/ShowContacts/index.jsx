@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TouchableHighlight, SafeAreaView, ScrollView } from 'react-native';
+import { View, TouchableHighlight, ScrollView } from 'react-native';
 // import GetContacts from '../GetContacts';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import CardSection from '../common/CardSection';
 import Card from '../common/Card';
 import CreateJsonContacts from '../CreateJsonContacts';
-import { SearchBar, Header } from 'react-native-elements';
+
 
 
 

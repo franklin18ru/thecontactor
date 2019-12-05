@@ -6,7 +6,7 @@ export default StyleSheet.create({
         flex: 1,
         alignItems: 'stretch',
         flexDirection: 'column',
-        backgroundColor: '#181A24',
+        backgroundColor: '#23303b',
         paddingTop:20,
         paddingBottom:20,
         paddingLeft: 20,
@@ -15,7 +15,7 @@ export default StyleSheet.create({
     },
     homeBody: {
         flex: 1,
-        backgroundColor: '#181A24',
+        backgroundColor: '#23303b',
     },
 
     contactPhoto: {
