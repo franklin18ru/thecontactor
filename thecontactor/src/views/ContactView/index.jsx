@@ -32,7 +32,7 @@ class ContactView extends Component {
                 style={styles.button}
                 title='Edit contact'
                 type='solid'
-                onPress={()=> this.props.navigation.navigate('Edit Contact', {name: getParam('name'), phoneNumber: getParam('phoneNumber')})}/>
+                onPress={()=> this.props.navigation.navigate('EditContact', {name: getParam('name'), phoneNumber: getParam('phoneNumber')})}/>
                 </View>
 
 
