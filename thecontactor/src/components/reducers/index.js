@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import ContactReducer from './ContactReducer'
 import localContactReducer from './localContactReducer'
-import ContactFormReducer from './ContactFormReducer'
-
+import CreateJsonContacts from '../../components/CreateJsonContacts';
+import ContactsFromJsonReducer from '../../components/reducers/ContactsFromJsonReducer';
 export default combineReducers({
     contacts: () => ContactReducer,
     localContacts: localContactReducer,
-    contactForm: ContactFormReducer
+    CreateJsonContacts: CreateJsonContacts,
+    ContactsFromJsonReducer: ContactsFromJsonReducer
 });
