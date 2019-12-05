@@ -1,4 +1,21 @@
 import * as constants from '../constants';
+import addContact from '../../services/index';
+
+export const ContactUpdate = ({ prop, value }) => {
+        return {
+            type: constants.CONTACT_UPDATE,
+            payload: { prop, value }
+        }
+};
+
+export const ContactCreate = ({ name, number }) =>{
+    console.log( name, number )
+    const contact = { name, number }
+    return {
+        type: constants.CONTACT_CREATE,
+        payload: addContact(contact)
+    }
+};
 
 export const GetContacts = (data) => {
     return {
@@ -12,4 +29,4 @@ export const ContactsFromJson = (contacts) => {
         type: constants.GETJSON_USERS,
         payload: contacts
     }
-}
+};
