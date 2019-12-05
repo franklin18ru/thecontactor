@@ -9,7 +9,6 @@ export const ContactUpdate = ({ prop, value }) => {
 };
 
 export const ContactCreate = ({ name, number }) =>{
-    console.log( name, number )
     const contact = { name, number }
     return (dispatch) => {
         dispatch({ type: constants.CONTACT_CREATE});

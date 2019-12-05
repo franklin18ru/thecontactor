@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 // import GetContactsFromJson from '../GetContactsFromJson';
 import CardSection from '../common/CardSection';
 import Card from '../common/Card';
+import CreateJsonContacts from '../CreateJsonContacts';
 
 
 
@@ -22,8 +23,7 @@ class ShowContacts extends Component {
 
                 {this.props.contacts != undefined ?
                 this.props.contacts.map(contact =>(
-                    <TouchableHighlight key={contact.phoneNumbers}>
-                    
+                    <TouchableHighlight key={contact.phoneNumbers} onPress={() => this.props.navigation.navigate('Contact', {name: contact.name, phoneNumber: contact.phone})}>
                             <CardSection>
                                 {contact.name}
                             </CardSection>
@@ -42,7 +42,7 @@ const mapStateToProps = function(state) {
 }
 
 ShowContacts.propTypes = {
-    contacts: PropTypes.object
+    contacts: PropTypes.array
 }
 
 export default connect(mapStateToProps, null)(ShowContacts);
