@@ -18,12 +18,10 @@ class ShowContacts extends Component {
             <Card>
                 {/* <GetContacts/> */}
     
-                
-
 
                 {this.props.contacts != undefined ?
                 this.props.contacts.map(contact =>(
-                    <TouchableHighlight key={contact.phoneNumbers} onPress={() => this.props.navigation.navigate('Contact', {name: contact.name, phoneNumber: contact.phone})}>
+                    <TouchableHighlight key={contact.phoneNumbers} onPress={() => this.props.navigation.navigate('Contact', {name: contact.name, phoneNumber: contact.phoneNumbers})}>
                             <CardSection>
                                 {contact.name}
                             </CardSection>
