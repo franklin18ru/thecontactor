@@ -18,8 +18,6 @@ const styles = {
         justifyContent: 'flex-start',
         flexDirection: 'row',
         position: 'relative',
-        // borderBottomColor: 'white',
-        // borderBottomWidth: 0.3,
         borderRadius: 5,
         marginBottom: 7
 

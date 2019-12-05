@@ -1,15 +1,13 @@
 import React from 'react';
-//import { Text } from 'react-native';
-import { Button, Card, CardSection, Input } from '../common';
-import { ContactUpdate, ContactCreate } from '../actions/contactActions';
+import { Button, Card, CardSection, Input } from '../../components/common'
+import { ContactUpdate, ContactCreate } from '../../components/actions/contactActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class CreateContact extends React.Component {
-
     onButtonPress() {
-        const { name, number } = this.props;
-        this.props.CreateContact({ name, number });
+        const { name, phoneNumber } = this.props;
+        this.props.ContactCreate({ name, phoneNumber });
     }
 
     render() {
@@ -28,8 +26,8 @@ class CreateContact extends React.Component {
                     <Input
                         placeholder="1234567"
                         label="Phone Number"
-                        value={this.props.number}
-                        onChangeText={value => this.props.ContactUpdate({ prop: 'number', value })}
+                        value={this.props.phoneNumber}
+                        onChangeText={value => this.props.ContactUpdate({ prop: 'phone', value })}
                     />
                 </CardSection>
 
@@ -45,17 +43,16 @@ class CreateContact extends React.Component {
 
 CreateContact.propTypes = {
     name: PropTypes.element.isRequired,
-    number: PropTypes.element.isRequired,
+    phoneNumber: PropTypes.element.isRequired,
     ContactUpdate: PropTypes.func.isRequired,
-    CreateContact: PropTypes.func.isRequired,
-    onButtonPress: PropTypes.func,
-
+    ContactCreate: PropTypes.func.isRequired,
+    onButtonPress: PropTypes.func
 }
 
 const mapStateToProps = (state) => {
-    const { name, number } = state.contactForm;
+    const { name, phoneNumber } = state.contactForm;
 
-    return { name, number };
+    return { name, phoneNumber };
 }
 
 export default connect(mapStateToProps, {
