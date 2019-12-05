@@ -3,7 +3,7 @@ import { View, TouchableHighlight } from 'react-native';
 // import GetContacts from '../GetContacts';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import GetContactsFromJson from '../GetContactsFromJson';
+// import GetContactsFromJson from '../GetContactsFromJson';
 import CardSection from '../common/CardSection';
 import Card from '../common/Card';
 
@@ -17,12 +17,13 @@ class ShowContacts extends Component {
             <Card>
                 {/* <GetContacts/> */}
     
-                <GetContactsFromJson/>
+                
 
 
                 {this.props.contacts != undefined ?
                 this.props.contacts.map(contact =>(
-                    <TouchableHighlight key={contact.phone}>
+                    <TouchableHighlight key={contact.phoneNumbers}>
+                    
                             <CardSection>
                                 {contact.name}
                             </CardSection>
@@ -36,7 +37,7 @@ class ShowContacts extends Component {
 }
 const mapStateToProps = function(state) {
     return {
-        contacts: state.ContactsFromJsonReducer.contacts
+        contacts: state.CreateJsonContacts.contacts
     }
 }
 
