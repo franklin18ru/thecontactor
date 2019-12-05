@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { addContact, getAllContacts, loadData } from '../../services/index';
+import { addContact, getAllContacts} from '../../services/index';
+import { ContactsFromJson } from '../actions/contactActions';
 
 
 class CreateJsonContacts extends Component {
@@ -15,8 +16,7 @@ class CreateJsonContacts extends Component {
         await this.props.phoneContacts.map(async contact => await addContact(contact));
         
         const contacts = await getAllContacts();
-        console.log(contacts);
-        
+        this.props.ContactsFromJson(contacts);
     }
 
 
@@ -34,7 +34,7 @@ const mapStateToProps = reduxStoreState => {
 }
 
 
-export default connect(mapStateToProps)(CreateJsonContacts);
+export default connect(mapStateToProps, {ContactsFromJson})(CreateJsonContacts);
 
 
 
