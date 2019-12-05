@@ -9,7 +9,7 @@ class CreateContact extends React.Component {
 
     onButtonPress() {
         const { name, number } = this.props;
-        this.props.CreateContact({ name, number })
+        this.props.CreateContact({ name, number });
     }
 
     render() {

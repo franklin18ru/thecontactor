@@ -11,9 +11,9 @@ export const ContactUpdate = ({ prop, value }) => {
 export const ContactCreate = ({ name, number }) =>{
     console.log( name, number )
     const contact = { name, number }
-    return {
-        type: constants.CONTACT_CREATE,
-        payload: addContact(contact)
+    return (dispatch) => {
+        dispatch({ type: constants.CONTACT_CREATE});
+        addContact(contact);
     }
 };
 
