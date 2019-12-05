@@ -9,7 +9,7 @@ class Home extends Component {
         return(
             <Provider store={createStore(Reducer)}>
             <View>
-                <ShowContacts/>
+                <ShowContacts navigation = {this.props.navigation}/>
             </View>
             </Provider>
         );
