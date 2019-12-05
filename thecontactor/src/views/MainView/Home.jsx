@@ -11,11 +11,11 @@ class Home extends Component {
     render(){
         return(
             <Provider store={createStore(Reducer)}>
-            <View style={{backgroundColor: '#273642', flex:1}}>
-                <GetContacts />
-                <CreateJsonContacts />
-                <ShowContacts navigation = {this.props.navigation}/>
-            </View>
+                <View style={{backgroundColor: '#273642', flex:1}}>
+                    <GetContacts />
+                    <CreateJsonContacts />
+                    <ShowContacts navigation = {this.props.navigation}/>
+                </View>
             </Provider>
         );
     }
