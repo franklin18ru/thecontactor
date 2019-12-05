@@ -21,8 +21,6 @@ class CreateJsonContacts extends Component {
 
 
 
-    
-
 render(){
     return null;
 }
@@ -35,7 +33,9 @@ const mapStateToProps = reduxStoreState => {
     };
 }
 
+
 export default connect(mapStateToProps)(CreateJsonContacts);
+
 
 
 
