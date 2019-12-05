@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-import { NavigationEvents } from 'react-navigation';
-import GetContacts from '../../components/GetContacts'
+import {View} from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore} from 'redux';
+import ContactsFromJsonReducer from '../../components/reducers/ContactsFromJsonReducer';
+import ShowContacts from '../../components/ShowContacts';
+
 class Home extends Component {
-    
     render(){
         return(
+            <Provider store={createStore(ContactsFromJsonReducer)}>
             <View>
-                <GetContacts/>
+                <ShowContacts/>
             </View>
+            </Provider>
         );
     }
 }
-
 
 export default Home;

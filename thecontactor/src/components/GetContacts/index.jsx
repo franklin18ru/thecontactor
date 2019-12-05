@@ -1,25 +1,28 @@
 import React from 'react';
 import * as Contacts from 'expo-contacts';
 import * as Permissions from 'expo-permissions';
+import { connect } from 'react-redux';
+import { GetContacts } from '../actions/contactActions';
 
-export default class App extends React.Component {
-
-  componentDidMount = async () => {
+ class AllContacts extends React.Component {
+  UNSAFE_componentWillMount = async () => {
     const { status } = await Permissions.askAsync(Permissions.CONTACTS);
     if (status === 'granted') {
       const { data } = await Contacts.getContactsAsync({
-        fields: [Contacts.Fields.Emails],
+        fields: [Contacts.Fields.PhoneNumbers],
       });
 
       if (data.length > 0) {
-        this.setState({ contacts: data })
+        // eslint-disable-next-line react/prop-types
+        this.props.GetContacts(data)
       }
     }
   };
-
   render() {
-    return (
-      this.state.contacts
-    );
+    return null
   }
-}
+  
+  }
+
+  
+  export default connect(null, {GetContacts})(AllContacts)
