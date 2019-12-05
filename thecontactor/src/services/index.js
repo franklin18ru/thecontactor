@@ -1,30 +1,20 @@
 import * as FileSystem from 'expo-file-system';
-
-// Directory that holds all the contracts to the system
+// Directory that holds all the contacts to the system
 const contactDirectory = `${FileSystem.documentDirectory}contacts`;
 
-
-const loadContact = async (fileName) => {
-    return await FileSystem.readAsStringAsync(
-        `${fileName}`,
-        {encoding: FileSystem.EncodingType.UTF8}
-    );
-};
-
-export const loadData = async (path) => {
-    return await FileSystem.readAsStringAsync(path, {encoding: FileSystem.EncodingType.UTF8});
-}
+// ADD DATA //
 
 export const addContact = async (data) => {
     const fileName = contactDirectory+"/"+data.name+".json";
-    await FileSystem.writeAsStringAsync(fileName, data, { encoding: FileSystem.EncodingType.UTF8 });
-    
-    // const asset = await MediaLibrary.createAssetAsync(fileUri)
-    // await MediaLibrary.createAlbumAsync("Download", asset, false)
-    // return {
-    //     name: fileName
-    // }
+    // TODO
+    // how the data from phone should come in
+    // name 
+    // photo 
+    // phone number
+    await FileSystem.writeAsStringAsync(fileName, JSON.stringify(data), { encoding: FileSystem.EncodingType.UTF8 });
 }
+
+// GET DATA //
 
 const setupDirectory = async () => {
     const dir = await FileSystem.getInfoAsync(contactDirectory);
@@ -33,23 +23,22 @@ const setupDirectory = async () => {
     }
 };
 
+export const loadData = async (fileName) => {
+    return await FileSystem.readAsStringAsync(`${contactDirectory}/${fileName}`, {encoding: FileSystem.EncodingType.UTF8});
+}
+
 export const getAllContacts = async () => {
     // Check if directory exists
     await setupDirectory();
-
     const result = await FileSystem.readDirectoryAsync(contactDirectory);
     return Promise.all(result.map(async (fileName) => {
         return {
-            name: fileName
-        };
+            'name': fileName,
+            'Contact': JSON.parse(await loadData(fileName))
+        }
     }));
 };
 
 
 
 
-// HOW TO USE
-
-// async addContact(contactLocation) {
-//     const newContact = await addContact(contactLocation)
-// }

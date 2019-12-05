@@ -15,9 +15,8 @@ class CreateJsonContacts extends Component {
         await this.props.phoneContacts.map(async contact => await addContact(contact));
         
         const contacts = await getAllContacts();
-        //console.log(contacts);
+        console.log(contacts);
         
-        //contacts.map( i => console.log(i))
     }
 
 
