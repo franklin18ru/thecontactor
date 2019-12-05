@@ -8,7 +8,7 @@ class Home extends Component {
     render(){
         return(
             <Provider store={createStore(Reducer)}>
-            <View>
+            <View style={{backgroundColor: '#273642', flex:1}}>
                 <ShowContacts/>
             </View>
             </Provider>

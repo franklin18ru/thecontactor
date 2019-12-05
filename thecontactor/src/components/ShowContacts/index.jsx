@@ -13,6 +13,7 @@ class ShowContacts extends Component {
 
     render(){
         return(
+            <View style={{paddingLeft: 5, paddingRight: 5}}>
             <Card>
                 {/* <GetContacts/> */}
     
@@ -22,7 +23,6 @@ class ShowContacts extends Component {
                 {this.props.contacts != undefined ?
                 this.props.contacts.map(contact =>(
                     <TouchableHighlight key={contact.phone}>
-                    
                             <CardSection>
                                 {contact.name}
                             </CardSection>
@@ -30,7 +30,7 @@ class ShowContacts extends Component {
                 ))
                 : <></>}
             </Card>
-
+            </View>
         )
     }
 }
