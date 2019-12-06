@@ -8,18 +8,18 @@ import CardSection from '../common/CardSection';
 import Card from '../common/Card';
 import CreateJsonContacts from '../CreateJsonContacts';
 import { SearchBar } from 'react-native-elements';
-import { UpdateSearch } from '../actions/contactActions';
-// import styles from './style';
+import { UpdateSearch,DoneLoading } from '../actions/contactActions';
 
 
 
 
 class ShowContacts extends Component {
-    constructor(props) {
-        super(props);
-        
-    }
+    
 
+   componentWillUpdate(){
+       console.log(this.props.contactsSearch);
+   }
+    
     searchFilterFunction = (search) => {
         // Passing the inserted search text in searchBar
         const newData = this.props.contacts.filter(function(item) {
@@ -32,47 +32,56 @@ class ShowContacts extends Component {
         this.props.UpdateSearch(search,newData)
     }
     render(){
-        return(
         
-            <ScrollView>
-                <SearchBar
-                    placeholder="Search..."
-                    onChangeText={value => this.searchFilterFunction(value)}
-                    value={this.props.search}
-                />
-                <Button 
-                    title="Create new contact"
-                    onPress={() => this.props.navigation.navigate('CreateContact')}
-                
-                />
-                <View style={{paddingLeft: 5, paddingRight: 5}}>
-                <Card>
-                    {/* <GetContacts/> */}
+        return(
+            
+                <ScrollView>
                     
-                    {this.props.contactsSearch != undefined ?
-                    this.props.contactsSearch.map(contact =>(
-                        
-                        <TouchableHighlight key={contact.file} onPress={() => this.props.navigation.navigate('Contact', {name: contact.name, phoneNumber: contact.phoneNumber, image:contact.image, fileName:contact.file})}>
-                                <CardSection>
-                                    {contact.image == '' ? 
-                                        <Image 
-                                        style={styles.contactPhoto}
-                                        source={{ uri: 'https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/67152750_341237676815845_316865137862508544_n.png?_nc_cat=102&_nc_ohc=unbiXO7fSIoAQmUbarMWkY0eepG5OcIfjOoku3_-5TJr3IPRnxv8LxuVA&_nc_ht=scontent-arn2-1.xx&oh=e4033d407633acccb00357511d074486&oe=5E408845'}} 
-                                        /> 
-                                        :  
-                                        <Image 
+                    <SearchBar
+                        placeholder="Search..."
+                        onChangeText={value => this.searchFilterFunction(value)}
+                        value={this.props.search}
+                    />
+                    <Button 
+                        title="Import phone Contacts(*2)"
+                        onPress={() => this.props.navigation.navigate('GetPhoneContacts')}
+                    
+                    />
+                    <Button 
+                        title="Create new contact"
+                        onPress={() => this.props.navigation.navigate('CreateContact')}
+                    
+                    />
+                    
+                        <View style={{paddingLeft: 5, paddingRight: 5}}>
+                        <Card> 
+                            {this.props.contactsSearch != undefined ?
+                            this.props.contactsSearch.map(contact =>(
+                                
+                                <TouchableHighlight key={contact.file} onPress={() => this.props.navigation.navigate('Contact', {name: contact.name, phoneNumber: contact.phoneNumber, image:contact.image, fileName:contact.file})}>
+                                        <CardSection>
+                                        {contact.image == '' ? 
+                                            <Image 
                                             style={styles.contactPhoto}
-                                            source={{ uri: contact.image }} 
-                                        /> 
-                                    }
-                                    {contact.name}
-                                </CardSection>
-                        </TouchableHighlight>
-                    ))
-                    : <></>}
-                </Card>
-                </View>
-            </ScrollView>
+                                            source={{ uri: 'https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/67152750_341237676815845_316865137862508544_n.png?_nc_cat=102&_nc_ohc=unbiXO7fSIoAQmUbarMWkY0eepG5OcIfjOoku3_-5TJr3IPRnxv8LxuVA&_nc_ht=scontent-arn2-1.xx&oh=e4033d407633acccb00357511d074486&oe=5E408845'}} 
+                                            /> 
+                                            :  
+                                            <Image 
+                                                style={styles.contactPhoto}
+                                                source={{ uri: contact.image }} 
+                                            /> 
+                                        }
+                                            {contact.name}
+                                            
+                                        </CardSection>
+                                </TouchableHighlight>
+                            ))
+                           : <></>}
+                        </Card>
+                        </View>
+                    
+                </ScrollView>
+            
         )
     }
 }
@@ -80,7 +89,7 @@ const mapStateToProps = function(state) {
     return {
         contacts: state.CreateJsonContacts.contacts,
         search: state.CreateJsonContacts.search, 
-        contactsSearch: state.CreateJsonContacts.contactsSearch
+        contactsSearch: state.CreateJsonContacts.contactsSearch,
     }
 }
 
@@ -96,4 +105,4 @@ const styles = {
     },
 }
 
-export default connect(mapStateToProps, {UpdateSearch})(ShowContacts);
+export default connect(mapStateToProps, {UpdateSearch,DoneLoading})(ShowContacts);

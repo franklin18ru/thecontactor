@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
-import { Icon, Header } from 'react-native-elements';
-import ShowContacts from '../../components/ShowContacts';
+import GetContacts from '../../components/GetContacts';
 
-class Home extends Component {
+
+class CreatePhoneContacts extends Component {
     static navigationOptions = {
         headerStyle: {
           backgroundColor: '#23303b',
@@ -17,10 +17,11 @@ class Home extends Component {
     render(){
         return(
                 <View style={{backgroundColor: '#273642', flex:1}}>
-                    <ShowContacts navigation = {this.props.navigation}/>
+                    <GetContacts navigation = {this.props.navigation}/>
+        
                 </View>
         );
     }
 }
 
-export default Home;
+export default CreatePhoneContacts;

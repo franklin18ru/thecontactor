@@ -35,3 +35,10 @@ export const UpdateSearch = (search,contacts) => {
         payload: {'contactsSearch':contacts,'search':search}
     }
 };
+
+export const DoneLoading = () => {
+    return {
+        type: constants.DONE_LOADING,
+        payload: false
+    }
+};

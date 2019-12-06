@@ -11,10 +11,10 @@ class CreateJsonContacts extends Component {
         
 
     }
-    async componentDidUpdate(){
+    async componentDidMount(){
         // console.log(this.props.phoneContacts);
         // await DeleteAllContact();
-        // await this.props.phoneContacts.map(async contact => await addContact(contact));
+        await this.props.phoneContacts.map(async contact => await addContact(contact));
         
         let contacts = await getAllContacts();
         contacts.sort(function(a,b){
@@ -22,8 +22,16 @@ class CreateJsonContacts extends Component {
             if(a.name.toLowerCase() > b.name.toLowerCase()){return 1;}
             return 0;
         })
-        this.props.ContactsFromJson(contacts);
+        await this.props.ContactsFromJson(contacts)
+        this.forceUpdate()
+        
     }
+    componentDidUpdate(){
+        this.props.navigation.navigate('Home')
+    }
+
+    
+    
 
 
 
