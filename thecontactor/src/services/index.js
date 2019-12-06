@@ -21,7 +21,7 @@ export const addContact = async (data) => {
     
     const contact = {
         'name': data.name,
-        'image': 'https://www.northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png',
+        'image': 'https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/67152750_341237676815845_316865137862508544_n.png?_nc_cat=102&_nc_ohc=unbiXO7fSIoAQmUbarMWkY0eepG5OcIfjOoku3_-5TJr3IPRnxv8LxuVA&_nc_ht=scontent-arn2-1.xx&oh=e4033d407633acccb00357511d074486&oe=5E408845',
         'phoneNumber': phoneNumbers
 
     };
@@ -32,7 +32,7 @@ export const addNewContact = async (data) => {
     const key = uuid.v1();
 
     const fileName = contactDirectory+'/'+data.name+'-'+key+'.json';
-    if(data.image == ''){data.image = 'https://www.northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png'}
+    if(data.image == ''){data.image = 'https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/67152750_341237676815845_316865137862508544_n.png?_nc_cat=102&_nc_ohc=unbiXO7fSIoAQmUbarMWkY0eepG5OcIfjOoku3_-5TJr3IPRnxv8LxuVA&_nc_ht=scontent-arn2-1.xx&oh=e4033d407633acccb00357511d074486&oe=5E408845'}
     await FileSystem.writeAsStringAsync(fileName, JSON.stringify(data), { encoding: FileSystem.EncodingType.UTF8 });
 }
 
