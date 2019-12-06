@@ -7,13 +7,16 @@ import { ContactsFromJson } from '../actions/contactActions';
 class CreateJsonContacts extends Component {
     constructor(props){
         super(props)
-        // console.log(this.props);
+       
         
 
     }
     async componentDidMount(){
-        // console.log(this.props.phoneContacts);
+     
+        // To delete all contacts
         // await DeleteAllContact();
+        
+        // await promise all?
         await this.props.phoneContacts.map(async contact => await addContact(contact));
         
         let contacts = await getAllContacts();
@@ -22,26 +25,18 @@ class CreateJsonContacts extends Component {
             if(a.name.toLowerCase() > b.name.toLowerCase()){return 1;}
             return 0;
         })
-        await this.props.ContactsFromJson(contacts)
+        await this.props.ContactsFromJson(contacts);
         this.forceUpdate()
         
     }
     componentDidUpdate(){
         this.props.navigation.navigate('Home')
     }
-
-    
-    
-
-
-
 render(){
     return null;
 }
 }
-
 const mapStateToProps = reduxStoreState => {
-    //console.log();
     return {
         phoneContacts: reduxStoreState.localContacts.data
     };
@@ -49,7 +44,3 @@ const mapStateToProps = reduxStoreState => {
 
 
 export default connect(mapStateToProps, {ContactsFromJson})(CreateJsonContacts);
-
-
-
-

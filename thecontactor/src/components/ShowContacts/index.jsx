@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
 import { View, TouchableHighlight, ScrollView, Button, Image } from 'react-native';
-// import GetContacts from '../GetContacts';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import GetContactsFromJson from '../GetContactsFromJson';
 import CardSection from '../common/CardSection';
 import Card from '../common/Card';
-import CreateJsonContacts from '../CreateJsonContacts';
 import { SearchBar } from 'react-native-elements';
 import { UpdateSearch,DoneLoading } from '../actions/contactActions';
 
 
-
-
 class ShowContacts extends Component {
-    
-
-   
     
     searchFilterFunction = (search) => {
         // Passing the inserted search text in searchBar

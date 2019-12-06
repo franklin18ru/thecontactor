@@ -1,5 +1,4 @@
 import * as constants from '../constants';
-import addContact from '../../services/index';
 
 export const ContactUpdate = (data) => {
         return {

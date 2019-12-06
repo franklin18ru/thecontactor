@@ -23,6 +23,4 @@ import { GetContacts } from '../actions/contactActions';
   }
   
   }
-
-  
-  export default connect(null, {GetContacts})(AllContacts)
+export default connect(null, {GetContacts})(AllContacts)

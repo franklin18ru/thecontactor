@@ -6,7 +6,6 @@ import Contact from '../views/ContactView/';
 import CreateContact from '../views/CreateContactView';
 import EditContact from '../views/EditContactView';
 import CreatePhoneContacts from '../views/CreatePhoneContacts';
-import GetPhoneContacts from '../views/GetPhoneContacts';
 
 
 const StackNavigator = createStackNavigator({
@@ -15,7 +14,6 @@ const StackNavigator = createStackNavigator({
     CreateContact,
     EditContact,
     CreatePhoneContacts,
-    GetPhoneContacts,
 });
 
 export default createAppContainer(StackNavigator);

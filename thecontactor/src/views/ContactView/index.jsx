@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text } from 'react-native';
-// import { NavigationEvents } from 'react-navigation';
 import styles from './style';
 import { Icon, Button, Image } from 'react-native-elements'
-// import * as contacts from '../../components/GetContacts/index'
 import {Linking} from 'react-native';
 
 class ContactView extends Component {

@@ -1,6 +1,5 @@
 import * as FileSystem from 'expo-file-system';
 import * as uuid from 'uuid';
-import * as anon from '../resources/image/anon.png';
 // Directory that holds all the contacts to the system
 const contactDirectory = `${FileSystem.documentDirectory}contacts`;
 
@@ -14,7 +13,6 @@ export const addContact = async (data) => {
         data.phoneNumbers.map(phone =>{
             arr.push(phone.number)
         });
-        // FIX IF YOU WANT ALL PHONE NUMBERS
         phoneNumbers = arr[0];
     }
     else{
@@ -31,7 +29,6 @@ export const addContact = async (data) => {
 }
 
 export const addNewContact = async (data) => {
-    // ADD UUID HERE
     const key = uuid.v1();
 
     const fileName = contactDirectory+'/'+data.name+'-'+key+'.json';

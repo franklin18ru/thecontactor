@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-import { View, TextInput, Text } from 'react-native';
-
 import EditContactForm from '../../components/EditContact';
 
 
