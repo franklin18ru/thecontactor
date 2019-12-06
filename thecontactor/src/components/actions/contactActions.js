@@ -28,3 +28,10 @@ export const ContactsFromJson = (contacts) => {
         payload: contacts
     }
 };
+
+export const UpdateSearch = (search,contacts) => {
+    return {
+        type: constants.UPDATE_SEARCH,
+        payload: {'contactsSearch':contacts,'search':search}
+    }
+};

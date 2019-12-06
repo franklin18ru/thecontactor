@@ -16,7 +16,12 @@ class CreateJsonContacts extends Component {
         // await DeleteAllContact();
         // await this.props.phoneContacts.map(async contact => await addContact(contact));
         
-        const contacts = await getAllContacts();
+        let contacts = await getAllContacts();
+        contacts.sort(function(a,b){
+            if(a.name.toLowerCase() < b.name.toLowerCase()){return -1;}
+            if(a.name.toLowerCase() > b.name.toLowerCase()){return 1;}
+            return 0;
+        })
         this.props.ContactsFromJson(contacts);
     }
 
