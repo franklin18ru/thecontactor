@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, TextInput, Text, Button, Image } from 'react-native';
 import { ContactUpdate } from '../actions/contactActions';
 import { DeleteContact, addNewContact, getAllContacts } from '../../services/index';
+import { selectFromCameraRoll, takePhoto } from '../../services/imageService';
 import styles from './editStyle';
 
 
@@ -22,6 +23,17 @@ class EditContact extends Component {
     async deleteContact(fileName){
         await DeleteContact(fileName)
     }
+
+    async camera(){
+        const photo = await takePhoto();
+        this.setState({image:photo});
+    }
+    async gallery(){
+        const photo = await selectFromCameraRoll();
+        this.setState({image:photo});
+    }
+
+
     async update(){
         const { name, phoneNumber, image, fileName } = this.state;
         // delete old contact
@@ -63,6 +75,14 @@ class EditContact extends Component {
                         title='Update' 
                         type='solid' 
                         onPress={()=>{this.update()}}/>
+                        <Button 
+                        title='Camera' 
+                        type='solid' 
+                        onPress={()=>{this.camera()}}/>
+                        <Button 
+                        title='Gallery' 
+                        type='solid' 
+                        onPress={()=>{this.gallery()}}/>
                     </View>   
             </View>
         )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TouchableHighlight, ScrollView } from 'react-native';
+import { View, TouchableHighlight, ScrollView, Image } from 'react-native';
 // import GetContacts from '../GetContacts';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -42,8 +42,10 @@ class ShowContacts extends Component {
                 <View style={{paddingLeft: 5, paddingRight: 5}}>
                 <Card>
                     {/* <GetContacts/> */}
+                    
                     {this.props.contactsSearch != undefined ?
                     this.props.contactsSearch.map(contact =>(
+                        
                         <TouchableHighlight key={contact.file} onPress={() => this.props.navigation.navigate('Contact', {name: contact.name, phoneNumber: contact.phoneNumber, image:contact.image, fileName:contact.file})}>
                                 <CardSection>
                                     {contact.name}
