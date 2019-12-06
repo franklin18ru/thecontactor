@@ -16,9 +16,7 @@ import { UpdateSearch,DoneLoading } from '../actions/contactActions';
 class ShowContacts extends Component {
     
 
-   componentWillUpdate(){
-       console.log(this.props.contactsSearch);
-   }
+   
     
     searchFilterFunction = (search) => {
         // Passing the inserted search text in searchBar
@@ -43,8 +41,8 @@ class ShowContacts extends Component {
                         value={this.props.search}
                     />
                     <Button 
-                        title="Import phone Contacts(*2)"
-                        onPress={() => this.props.navigation.navigate('GetPhoneContacts')}
+                        title="Import phone Contacts"
+                        onPress={() => this.props.navigation.navigate('CreatePhoneContacts')}
                     
                     />
                     <Button 

@@ -16,7 +16,6 @@ import { GetContacts } from '../actions/contactActions';
         // eslint-disable-next-line react/prop-types
         this.props.GetContacts(data)
       }
-      this.props.navigation.navigate('CreatePhoneContacts')
     }
   };
   render() {
