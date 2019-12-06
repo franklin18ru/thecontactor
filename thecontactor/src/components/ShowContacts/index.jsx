@@ -54,7 +54,7 @@ class ShowContacts extends Component {
                         <TouchableHighlight key={contact.file} onPress={() => this.props.navigation.navigate('Contact', {name: contact.name, phoneNumber: contact.phoneNumber, image:contact.image, fileName:contact.file})}>
                                 <CardSection>
                                     
-                                    <Image source={{ uri:contact.image }} />
+                                    {/* <Image source={{ uri:contact.image }} /> */}
                                     {contact.name}
                                     
                                 </CardSection>
