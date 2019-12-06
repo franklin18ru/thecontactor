@@ -58,8 +58,17 @@ class ShowContacts extends Component {
                                 
                                 <TouchableHighlight key={contact.file} onPress={() => this.props.navigation.navigate('Contact', {name: contact.name, phoneNumber: contact.phoneNumber, image:contact.image, fileName:contact.file})}>
                                         <CardSection>
-                                            
-                                            
+                                        {contact.image == '' ? 
+                                            <Image 
+                                            style={styles.contactPhoto}
+                                            source={{ uri: 'https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/67152750_341237676815845_316865137862508544_n.png?_nc_cat=102&_nc_ohc=unbiXO7fSIoAQmUbarMWkY0eepG5OcIfjOoku3_-5TJr3IPRnxv8LxuVA&_nc_ht=scontent-arn2-1.xx&oh=e4033d407633acccb00357511d074486&oe=5E408845'}} 
+                                            /> 
+                                            :  
+                                            <Image 
+                                                style={styles.contactPhoto}
+                                                source={{ uri: contact.image }} 
+                                            /> 
+                                        }
                                             {contact.name}
                                             
                                         </CardSection>
@@ -84,6 +93,14 @@ const mapStateToProps = function(state) {
 
 ShowContacts.propTypes = {
     contacts: PropTypes.array
+}
+
+const styles = {
+    contactPhoto:{
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+    },
 }
 
 export default connect(mapStateToProps, {UpdateSearch,DoneLoading})(ShowContacts);
