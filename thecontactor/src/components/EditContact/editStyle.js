@@ -49,6 +49,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         paddingRight: 70,
         paddingLeft: 70,
-    }
+    },
+    
 
 });

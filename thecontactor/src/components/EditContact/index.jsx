@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, TextInput, Text, Button } from 'react-native';
+import { View, TextInput, Text, Button, Image } from 'react-native';
 import { ContactUpdate } from '../actions/contactActions';
 import { DeleteContact, addNewContact, getAllContacts } from '../../services/index';
-import styles from '../../views/EditContactView/editStyle';
+import styles from './editStyle';
 
 
 class EditContact extends Component {
@@ -40,7 +40,8 @@ class EditContact extends Component {
         // const { inputStyle, labelStyle, containerStyle } = styles
         return(
             <View style={styles.body}>
-                <View style={styles.contactPhoto}/>
+                    
+                    <Image style={styles.contactPhoto} source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}/>
                     <View style={styles.formView}>
                         <Text style={styles.label}>Name</Text>
                         <TextInput style={styles.input}
