@@ -41,7 +41,7 @@ class EditContact extends Component {
             <View>
                     <View>
                         <Text>Name</Text>
-                        <TextInput 
+                        <TextInput
                             value={this.state.name}
                             label="Name"
 
@@ -50,8 +50,7 @@ class EditContact extends Component {
                     </View>
                     <View>
                         <Text>Number</Text>
-                        <Text>{this.state.phoneNumber}</Text>
-                        <TextInput 
+                        <TextInput
                             value={this.state.phoneNumber != undefined ? this.state.phoneNumber : 'Enter phone number here'}
                             label="Number"
                             onChangeText={text => this.changeValue('phoneNumber',text)}
