@@ -4,6 +4,7 @@ import { View, Text } from 'react-native';
 import styles from './style';
 import { Icon, Button } from 'react-native-elements'
 // import * as contacts from '../../components/GetContacts/index'
+import {Linking} from 'react-native';
 
 class ContactView extends Component {
     static navigationOptions = {
@@ -31,7 +32,7 @@ class ContactView extends Component {
                         <Icon
                         style={ styles.icon }
                         name='ios-call' color={'#23303b'} size={30} type='ionicon' reverse
-                        onPress={()=> alert('Coming Soon!')}
+                        onPress={()=> Linking.openURL(`tel:${getParam('phoneNumber')}`)}
                         />
                     </View>
                 </View>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, TextInput, Text, Button } from 'react-native';
 import { ContactUpdate } from '../actions/contactActions';
 import { DeleteContact, addNewContact, getAllContacts } from '../../services/index';
+import styles from '../../views/EditContactView/editStyle';
 
 
 class EditContact extends Component {
@@ -36,55 +37,58 @@ class EditContact extends Component {
         this.setState({[prop]:value})
     }
     render(){
-        const { inputStyle, labelStyle, containerStyle } = styles
+        // const { inputStyle, labelStyle, containerStyle } = styles
         return(
-            <View>
-                    <View>
-                        <Text>Name</Text>
-                        <TextInput
+            <View style={styles.body}>
+                <View style={styles.contactPhoto}/>
+                    <View style={styles.formView}>
+                        <Text style={styles.label}>Name</Text>
+                        <TextInput style={styles.input}
                             value={this.state.name}
                             label="Name"
 
                             onChangeText={text => this.changeValue('name',text)}
                         />
-                    </View>
-                    <View>
-                        <Text>Number</Text>
-                        <TextInput
+                   
+                        <Text style={styles.label}>Number</Text>
+                        <TextInput style={styles.input}
                             value={this.state.phoneNumber != undefined ? this.state.phoneNumber : 'Enter phone number here'}
                             label="Number"
                             onChangeText={text => this.changeValue('phoneNumber',text)}
                         />
                     </View>
-                    <View>
-                        <Button title='Update' onPress={()=>{this.update()}}></Button>
-                    </View>
+                    <View style={styles.buttonView}>
+                        <Button 
+                        title='Update' 
+                        type='solid' 
+                        onPress={()=>{this.update()}}/>
+                    </View>   
             </View>
         )
     }
 }
 
-const styles = {
-    inputStyle: {
-        color: '#000',
-        paddingRight: 5,
-        paddingLeft: 5,
-        fontSize: 18,
-        lineHeight: 23,
-        flex: 2
-    },
-    labelStyle: {
-        fontSize: 18,
-        paddingLeft: 20,
-        flex: 1
-    },
-    containerStyle: {
-        height: 40,
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center'
-    }
-};
+// const styles = {
+//     inputStyle: {
+//         color: '#000',
+//         paddingRight: 5,
+//         paddingLeft: 5,
+//         fontSize: 18,
+//         lineHeight: 23,
+//         flex: 2
+//     },
+//     labelStyle: {
+//         fontSize: 18,
+//         paddingLeft: 20,
+//         flex: 1
+//     },
+//     containerStyle: {
+//         height: 40,
+//         flex: 1,
+//         flexDirection: 'row',
+//         alignItems: 'center'
+//     }
+// };
 
 
 

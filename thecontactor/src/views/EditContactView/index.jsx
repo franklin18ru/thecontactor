@@ -10,6 +10,12 @@ export default class EditContact extends Component {
         super(props)
         
     }
+    static navigationOptions = {
+        headerStyle: {
+          backgroundColor: '#23303b',
+        },
+        
+      }
     render(){
         const { name, phoneNumber, image, fileName } = this.props.navigation.state.params
         return(
