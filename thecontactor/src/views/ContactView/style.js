@@ -18,14 +18,19 @@ export default StyleSheet.create({
         backgroundColor: '#23303b',
     },
 
-    contactPhoto: {
+    contactPhotoContainer: {
         flex: 1,
+        marginBottom: 20,
+        alignSelf: 'flex-start',
         width: 100,
         height: 100,
-        marginBottom: 20,
-        borderRadius: 100,
-        backgroundColor: 'pink',
-        alignSelf: 'flex-start'
+        borderRadius: 50,
+        overflow: 'hidden'
+    },
+    contactPhoto:{
+        width: 100,
+        height: 100,
+        borderRadius: 50,
     },
     
     textIcon: {
