@@ -41,7 +41,12 @@ class EditContact extends Component {
         // add new contact
         this.addContact({'name':name,image:image,phoneNumber:phoneNumber})
         // update state
-        const contacts = await getAllContacts();
+        let contacts = await getAllContacts();
+        contacts.sort(function(a,b){
+            if(a.name.toLowerCase() < b.name.toLowerCase()){return -1;}
+            if(a.name.toLowerCase() > b.name.toLowerCase()){return 1;}
+            return 0;
+        })
         await this.props.ContactUpdate(contacts);
         this.props.nav.navigate('Home');
     }
