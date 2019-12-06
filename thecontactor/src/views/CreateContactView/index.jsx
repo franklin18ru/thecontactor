@@ -1,15 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class CreateContact extends React.Component {
+import CreateContactForm from '../../components/CreateContact';
+
+export default class CreateContact extends Component {
     render() {
         return (
-            <CreateContact />
+            <CreateContactForm nav={this.props.navigation}/>
         );
     }
 }
-
-
-
-
-
-export default CreateContact;
