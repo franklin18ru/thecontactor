@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { addContact, getAllContacts} from '../../services/index';
+import { addContact, getAllContacts, DeleteAllContact} from '../../services/index';
 import { ContactsFromJson } from '../actions/contactActions';
 
 
@@ -13,7 +13,8 @@ class CreateJsonContacts extends Component {
     }
     async componentDidUpdate(){
         // console.log(this.props.phoneContacts);
-        await this.props.phoneContacts.map(async contact => await addContact(contact));
+        // await DeleteAllContact();
+        // await this.props.phoneContacts.map(async contact => await addContact(contact));
         
         const contacts = await getAllContacts();
         this.props.ContactsFromJson(contacts);

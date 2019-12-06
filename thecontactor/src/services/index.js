@@ -1,24 +1,20 @@
 import * as FileSystem from 'expo-file-system';
+import * as uuid from 'uuid';
 // Directory that holds all the contacts to the system
 const contactDirectory = `${FileSystem.documentDirectory}contacts`;
 
 // ADD DATA //
 
 export const addContact = async (data) => {
-    const fileName = contactDirectory+"/"+data.name+".json";
-    // TODO
-    // how the data from phone should come in
-    // name 
-    // photo 
-    // phone number
-    
+    const fileName = contactDirectory+'/'+data.name+'.json';
     var phoneNumbers;
     if(data.phoneNumbers != undefined){
         var arr = [];
         data.phoneNumbers.map(phone =>{
             arr.push(phone.number)
         });
-        phoneNumbers = arr;
+        // FIX IF YOU WANT ALL PHONE NUMBERS
+        phoneNumbers = arr[0];
     }
     else{
         phoneNumbers = data.phoneNumbers;
@@ -27,10 +23,19 @@ export const addContact = async (data) => {
     const contact = {
         'name': data.name,
         'image': '',
-        'phoneNumbers': phoneNumbers
+        'phoneNumber': phoneNumbers
 
     };
     await FileSystem.writeAsStringAsync(fileName, JSON.stringify(contact), { encoding: FileSystem.EncodingType.UTF8 });
+}
+
+export const addNewContact = async (data) => {
+    // ADD UUID HERE
+    const key = uuid.v1();
+
+    const fileName = contactDirectory+'/'+data.name+'-'+key+'.json';
+
+    await FileSystem.writeAsStringAsync(fileName, JSON.stringify(data), { encoding: FileSystem.EncodingType.UTF8 });
 }
 
 // GET DATA //
@@ -52,16 +57,29 @@ export const getAllContacts = async () => {
     const result = await FileSystem.readDirectoryAsync(contactDirectory);
     return Promise.all(result.map(async (fileName) => {
         const data = JSON.parse(await loadData(fileName));
-
         return {
             'name': data.name,
             'image': data.image,
-            'phoneNumbers': data.phoneNumbers,
+            'phoneNumber': data.phoneNumber,
             'file': fileName
         }
     }));
 };
 
 
+// DELETE DATA
 
+export const DeleteContact = async (fileName) => {
+    await FileSystem.deleteAsync(`${contactDirectory}/${fileName}`, { idempotent: true });
+}
+
+// Very dangerous, this like the movie Hackers
+export const DeleteAllContact = async () => {
+    await setupDirectory();
+    const result = await FileSystem.readDirectoryAsync(contactDirectory);
+    return Promise.all(result.map(async (fileName) => {
+        await DeleteContact(fileName);
+        
+    }));
+};
 
