@@ -8,11 +8,10 @@ export const ContactUpdate = (data) => {
         }
 };
 
-export const ContactCreate = ({ name, phoneNumber }) =>{
-    const contact = { name, phoneNumber }
-    return (dispatch) => {
-        dispatch({ type: constants.CONTACT_CREATE});
-        addContact(contact);
+export const ContactCreate = (data) =>{
+    return {
+        type: constants.CONTACT_CREATE,
+        payload: data
     }
 };
 
