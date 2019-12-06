@@ -11,13 +11,17 @@ class CreateJsonContacts extends Component {
         
 
     }
+    componentWillMount(){
+        if(this.props.phoneContacts == undefined){
+            this.props.navigation.navigate('Home')
+        }
+    }
     async componentDidMount(){
-     
         // To delete all contacts
         // await DeleteAllContact();
         
-        // await promise all?
-        await this.props.phoneContacts.map(async contact => await addContact(contact));
+
+        Promise.all(this.props.phoneContacts.map(async (contact) => await addContact(contact)));
         
         let contacts = await getAllContacts();
         contacts.sort(function(a,b){

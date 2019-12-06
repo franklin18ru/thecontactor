@@ -32,11 +32,14 @@ class ShowContacts extends Component {
                         onChangeText={value => this.searchFilterFunction(value)}
                         value={this.props.search}
                     />
+                    {this.props.phoneContacts != undefined ?
                     <Button 
                         title="Import phone Contacts"
                         onPress={() => this.props.navigation.navigate('CreatePhoneContacts')}
                     
                     />
+                    :<></>}
+                    
                     <Button 
                         title="Create new contact"
                         onPress={() => this.props.navigation.navigate('CreateContact')}
@@ -80,6 +83,7 @@ const mapStateToProps = function(state) {
         contacts: state.CreateJsonContacts.contacts,
         search: state.CreateJsonContacts.search, 
         contactsSearch: state.CreateJsonContacts.contactsSearch,
+        phoneContacts: state.localContacts.data
     }
 }
 
