@@ -4,6 +4,7 @@ import { View, TextInput, Text, Button } from 'react-native';
 import { ContactCreate } from '../actions/contactActions';
 import { addNewContact, getAllContacts } from '../../services/index';
 import styles from './createContactStyle';
+import { selectFromCameraRoll, takePhoto } from '../../services/imageService';
 
 
 class CreateContact extends Component {
@@ -25,6 +26,16 @@ class CreateContact extends Component {
         await this.props.ContactCreate(contacts)
         this.props.nav.navigate('Home');
     }
+
+    async camera(){
+        const photo = await takePhoto();
+        this.setState({image:photo});
+    }
+    async gallery(){
+        const photo = await selectFromCameraRoll();
+        this.setState({image:photo});
+    }
+
     render() {
         return(
             <View style={styles.body}>
@@ -45,7 +56,8 @@ class CreateContact extends Component {
                         onChangeText={value => this.changeValue('phoneNumber', value)}
                     />
                     {/* <View style={styles.buttonView}> */}
-                        <Button  title='Add Photo' type='solid' onPress={() => alert('say cheese')}/>
+                        <Button  title='Camera' type='solid' onPress={() => this.camera()}/>
+                        <Button  title='Gallery' type='solid' onPress={() => this.gallery()}/>
                     {/* </View> */}
                 </View>
                 <View style={styles.buttonView}>
