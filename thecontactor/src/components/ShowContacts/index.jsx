@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TouchableHighlight, ScrollView } from 'react-native';
+import { View, TouchableHighlight, ScrollView, Button } from 'react-native';
 // import GetContacts from '../GetContacts';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -18,6 +18,7 @@ class ShowContacts extends Component {
 
             <ScrollView>
                 <View style={{paddingLeft: 5, paddingRight: 5}}>
+                <Button title='CreateContact' onPress={()=> this.props.navigation.navigate('CreateContact')}></Button>
                 <Card>
                     {/* <GetContacts/> */}
                     {this.props.contacts != undefined ?

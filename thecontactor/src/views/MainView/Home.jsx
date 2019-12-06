@@ -10,11 +10,11 @@ class Home extends Component {
         headerStyle: {
           backgroundColor: '#23303b',
         },
-        headerRight: () => (
-          <Icon name='ios-add' type='ionicon' color='white' size={40}
-              onPress={ () => this.props.navigation.navigate('CreateContact')}
-            />
-        ),
+        // headerRight: () => (
+        //   <Icon name='ios-add' type='ionicon' color='white' size={40}
+        //       onPress={ () => console.log()}
+        //     />
+        // ),
       };
     render(){
         return(
