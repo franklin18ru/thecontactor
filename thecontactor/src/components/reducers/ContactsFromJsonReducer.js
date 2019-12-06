@@ -7,7 +7,7 @@ export default function(state = {}, action) {
         case constants.CONTACT_UPDATE:
             return { ...state, ['contacts']:action.payload }
         case constants.CONTACT_CREATE:
-            return { ...state, [action.payload.prop]: action.payload.value }
+            return { ...state, ['contacts']:action.payload }
         default: 
             return state
     }
