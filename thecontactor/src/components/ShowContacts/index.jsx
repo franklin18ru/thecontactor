@@ -7,15 +7,30 @@ import PropTypes from 'prop-types';
 import CardSection from '../common/CardSection';
 import Card from '../common/Card';
 import CreateJsonContacts from '../CreateJsonContacts';
+import { SearchBar } from 'react-native-elements';
 
 
 
 
 class ShowContacts extends Component {
+    state = {
+        search: '',
+    };
 
+    updateSearch = search => {
+        this.setState({ search })
+        console.log(search);
+    }
     render(){
+        const { search } = this.state;
         return(
+            <View>
+            <SearchBar
+                placeholder="Search..."
+                onChangeText={this.updateSearch}
+                value={search}
 
+            />
             <ScrollView>
                 <View style={{paddingLeft: 5, paddingRight: 5}}>
                 <Card>
