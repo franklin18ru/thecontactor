@@ -11,11 +11,6 @@ class ContactView extends Component {
         headerStyle: {
           backgroundColor: '#23303b',
         },
-        headerRight: () => (
-          <Icon name='ios-add' type='ionicon' color='white' size={40}
-              onPress={ () => this.props.navigation.navigate('CreateContact')}
-            />
-        ),
       };
     render(){
         const { getParam } = this.props.navigation
