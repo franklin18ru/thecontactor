@@ -1,10 +1,10 @@
 import * as constants from '../constants';
 import addContact from '../../services/index';
 
-export const ContactUpdate = ({ prop, value }) => {
+export const ContactUpdate = (data) => {
         return {
             type: constants.CONTACT_UPDATE,
-            payload: { prop, value }
+            payload: data
         }
 };
 
