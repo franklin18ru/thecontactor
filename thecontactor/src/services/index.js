@@ -1,5 +1,6 @@
 import * as FileSystem from 'expo-file-system';
 import * as uuid from 'uuid';
+import * as anon from '../resources/image/anon.png';
 // Directory that holds all the contacts to the system
 const contactDirectory = `${FileSystem.documentDirectory}contacts`;
 
@@ -19,10 +20,10 @@ export const addContact = async (data) => {
     else{
         phoneNumbers = data.phoneNumbers;
     }
-
+    
     const contact = {
         'name': data.name,
-        'image': '',
+        'image': 'https://www.northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png',
         'phoneNumber': phoneNumbers
 
     };
@@ -34,7 +35,7 @@ export const addNewContact = async (data) => {
     const key = uuid.v1();
 
     const fileName = contactDirectory+'/'+data.name+'-'+key+'.json';
-
+    if(data.image == ''){data.image = 'https://www.northcliftonestates.ca/wp-content/uploads/2019/06/placeholder-images-image_large.png'}
     await FileSystem.writeAsStringAsync(fileName, JSON.stringify(data), { encoding: FileSystem.EncodingType.UTF8 });
 }
 
